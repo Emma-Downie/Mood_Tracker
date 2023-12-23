@@ -29,6 +29,23 @@ def add_score(file_name):
 
 def add_emotions(file_name):
     print("Add key emotions")
+    emotions_list = ["Happy","Sad","Angry","Content","Grumpy"]
+    print("Choose an emotion from the following list")
+    print(emotions_list)
+    chosen_emotion = input("Enter Selection: ")
+    emotion_found = False
+    for emotion in emotions_list:
+        if chosen_emotion == emotion:
+            with open(file_name, "a", newline='') as f:
+                writer = csv.writer(f)
+                writer.writerow([chosen_emotion, "False"])
+            emotion_found = True
+            break 
+
+    # Print a message if the chosen emotion is not in the list
+    if not emotion_found:
+        print("Please choose from emotions above")
+    
 
 def mark_entry_complete(file_name):
     print("Mark entry complete")
