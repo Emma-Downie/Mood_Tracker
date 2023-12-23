@@ -1,4 +1,4 @@
-from mood_tracker_functions import add_entry, add_emotions, add_score, remove_entry, view_entries
+from mood_tracker_functions import add_entry, add_emotions, add_score, remove_entry, view_entries, mark_entry_complete
 
 file_name = "entries.csv"
 
@@ -27,13 +27,14 @@ def create_menu():
     print("3. Enter 3 to add a score/10 for the day")
     print("4. Enter 4 to add key emotion words for the day")
     print("5. Enter 5 to view all entries")
-    print("6. Enter 6 to exit")
+    print("6. Enter 6 to mark entry complete")
+    print("7. Enter 7 to exit")
     choice = input("Enter your selection: ")
     return choice
 
 users_choice = ""
 
-while users_choice != "6":
+while users_choice != "7":
     users_choice = create_menu()
     if (users_choice == "1"):
         add_entry(file_name)
@@ -46,6 +47,8 @@ while users_choice != "6":
     elif(users_choice == "5"):
         view_entries(file_name)
     elif(users_choice == "6"):
+        mark_entry_complete(file_name)
+    elif(users_choice == "7"):
         continue
     else:
         print("Invalid Inupt")

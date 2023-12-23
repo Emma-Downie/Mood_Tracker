@@ -30,6 +30,21 @@ def add_score(file_name):
 def add_emotions(file_name):
     print("Add key emotions")
 
+def mark_entry_complete(file_name):
+    print("Mark entry complete")
+    entry_name = input("Type entry that you would like to mark as complete: ")
+    entry_list = []
+    with open(file_name, "r") as f:
+        reader = csv.reader(f)
+        for row in reader: 
+            if(entry_name != row[0]):
+                entry_list.append(row)
+            else:
+                entry_list.append([row[0], "True"])
+    with open(file_name, "w") as f:
+        writer = csv.writer(f)
+        writer.writerows(entry_list)
+
 def view_entries(file_name):
     print("View all entries")
     with open(file_name, "r") as f:
