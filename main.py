@@ -50,4 +50,4 @@ while users_choice != "6":
     else:
         print("Invalid Inupt")
 
-print("Thank you for your entry")
+print("Thank you for using your mood tracker")
