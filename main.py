@@ -1,3 +1,4 @@
+from colored import fg, attr, bg
 from mood_tracker_functions import add_entry, add_emotions, add_score, remove_entry, view_entries, mark_entry_complete
 
 file_name = "entries.csv"
@@ -19,7 +20,8 @@ except FileNotFoundError:
     print("In except block")
 
 
-print("Welcome to your Mood Tracker")
+print(f"{fg('black')}{bg('white')}Welcome to your Mood Tracker{attr('reset')}")
+
 
 def create_menu():
     print("1. Enter 1 to add a diary entry")
