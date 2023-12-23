@@ -9,12 +9,12 @@ try:
     print("In try block")
     #if it rhows error, it means the file doesn't exist
     #if no error, it mesns the file exists
-except:
+except FileNotFoundError:
     #now we knhow the file doesnt exist
     #create the file
     entries_file = open(file_name, "w")
     #we can also insert the first line into the file
-    entries_file.write("title,completed")
+    entries_file.write("title,completed\n")
     entries_file.close()
     print("In except block")
 
@@ -36,15 +36,15 @@ users_choice = ""
 while users_choice != "6":
     users_choice = create_menu()
     if (users_choice == "1"):
-        add_entry()
+        add_entry(file_name)
     elif (users_choice == "2"):
-        remove_entry()
+        remove_entry(file_name)
     elif(users_choice == "3"):
-        add_score()
+        add_score(file_name)
     elif (users_choice == "4"):
-        add_emotions()
+        add_emotions(file_name)
     elif(users_choice == "5"):
-        view_entries()
+        view_entries(file_name)
     elif(users_choice == "6"):
         continue
     else:
