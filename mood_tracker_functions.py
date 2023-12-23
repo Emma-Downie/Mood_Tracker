@@ -13,6 +13,16 @@ def add_entry(file_name):
 
 def remove_entry(file_name):
     print("Remove Entry")
+    entry_name = input("Type the entry you would like to remove: ")
+    entry_list = []
+    with open(file_name, "r") as f:
+        reader = csv.reader(f)
+        for row in reader:
+            if (entry_name != row[0]):
+                entry_list.append(row)
+    with open(file_name, "w") as f:
+        writer = csv.writer(f)
+        writer.writerows(entry_list)
 
 def add_score(file_name):
     print("Rate day / 10")
