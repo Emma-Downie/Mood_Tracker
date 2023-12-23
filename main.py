@@ -1,5 +1,5 @@
 from colored import fg, attr, bg
-from mood_tracker_functions import add_entry, add_emotions, add_score, remove_entry, view_entries, mark_entry_complete
+from mood_tracker_functions import add_entry, add_emotions, add_score, remove_entry, view_entries, mark_entry_complete, complete_entry
 
 file_name = "entries.csv"
 
@@ -22,35 +22,29 @@ except FileNotFoundError:
 
 print(f"{fg('black')}{bg('white')}Welcome to your Mood Tracker{attr('reset')}")
 
+complete_entry(file_name)
+
+
 
 def create_menu():
-    print("1. Enter 1 to add a diary entry")
-    print("2. Enter 2 to remove a diary entry")
-    print("3. Enter 3 to add a score/10 for the day")
-    print("4. Enter 4 to add key emotion words for the day")
-    print("5. Enter 5 to view all entries")
-    print("6. Enter 6 to mark entry complete")
-    print("7. Enter 7 to exit")
+    print("1. Enter 1 to view all entries")
+    print("2. Enter 2 to mark entry complete")
+    print("3. Enter 3 to add another entry")
+    print("4. Enter 4 to exit")
     choice = input("Enter your selection: ")
     return choice
 
 users_choice = ""
 
-while users_choice != "7":
+while users_choice != "4":
     users_choice = create_menu()
-    if (users_choice == "1"):
-        add_entry(file_name)
-    elif (users_choice == "2"):
-        remove_entry(file_name)
-    elif(users_choice == "3"):
-        add_score(file_name)
-    elif (users_choice == "4"):
-        add_emotions(file_name)
-    elif(users_choice == "5"):
+    if(users_choice == "1"):
         view_entries(file_name)
-    elif(users_choice == "6"):
+    elif(users_choice == "2"):
         mark_entry_complete(file_name)
-    elif(users_choice == "7"):
+    elif(users_choice == "3"):
+        complete_entry(file_name)
+    elif(users_choice == "4"):
         continue
     else:
         print("Invalid Inupt")

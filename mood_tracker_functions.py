@@ -24,28 +24,46 @@ def remove_entry(file_name):
         writer = csv.writer(f)
         writer.writerows(entry_list)
 
+import csv
+
 def add_score(file_name):
     print("Rate day / 10")
+    
+    # Use input to get user input as a string
+    user_input = input("Enter number between 0 and 10: ")
+    
+    try:
+        # Convert the user input to an integer
+        daily_rating = int(user_input)
+        
+        # Check if the entered integer is between 0 and 10
+        if 0 <= daily_rating <= 10:
+            with open(file_name, "a") as f:
+                writer = csv.writer(f)
+                writer.writerow([daily_rating, "False"])
+        else:
+            print("Invalid entry, please enter a number between 0 and 10")
+    
+    except ValueError:
+        print("Invalid input. Please enter a number between 0 and 10.")
+
 
 def add_emotions(file_name):
     print("Add key emotions")
-    emotions_list = ["Happy","Sad","Angry","Content","Grumpy"]
-    print("Choose an emotion from the following list")
-    print(emotions_list)
-    chosen_emotion = input("Enter Selection: ")
-    emotion_found = False
-    for emotion in emotions_list:
-        if chosen_emotion == emotion:
+    emotions_list = ["Happy", "Sad", "Angry", "Content", "Grumpy"]
+
+    while True:
+        print("Choose an emotion from the following list (case sensitive):")
+        print(emotions_list)
+        chosen_emotion = input("Enter Selection: ")
+
+        if chosen_emotion in emotions_list:
             with open(file_name, "a", newline='') as f:
                 writer = csv.writer(f)
                 writer.writerow([chosen_emotion, "False"])
-            emotion_found = True
-            break 
-
-    # Print a message if the chosen emotion is not in the list
-    if not emotion_found:
-        print("Please choose from emotions above")
-    
+            break  # Exit the loop if a valid emotion is entered
+        else:
+            print("Please choose from emotions above")
 
 def mark_entry_complete(file_name):
     print("Mark entry complete")
@@ -72,3 +90,39 @@ def view_entries(file_name):
                 print(f"Entry {row[0]} is completed")
             else:
                 print(f"Entry {row[0]} is not complete")
+
+def complete_entry(file_name):
+    print("Complete Entry")
+    
+    entry_name = input("Add an entry title: ")
+
+    print("Add key emotions")
+    emotions_list = ["Happy", "Sad", "Angry", "Content", "Grumpy"]
+
+    while True:
+        print("Choose an emotion from the following list")
+        print(emotions_list)
+        chosen_emotion = input("Enter Selection: ")
+
+        if chosen_emotion in emotions_list:
+            break
+        else:
+            print("Please choose from emotions above")
+
+    print("Rate day / 10")
+    
+    while True:
+        user_input = input("Enter number between 0 and 10: ")
+
+        try:
+            daily_rating = int(user_input)
+            if 0 <= daily_rating <= 10:
+                break
+            else:
+                print("Invalid entry, please enter a number between 0 and 10")
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+
+    with open(file_name, "a", newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow([entry_name, chosen_emotion, daily_rating, "False"])
