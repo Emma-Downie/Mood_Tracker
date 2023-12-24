@@ -23,10 +23,10 @@ complete_entry(file_name)
 
 
 def create_menu():
-    print("1. Enter 1 to view all entries")
-    print("2. Enter 2 to mark entry complete")
-    print("3. Enter 3 to add another entry")
-    print("4. Enter 4 to exit")
+    print(f"{fg('cyan')}{bg('white')}1. Enter 1 to view all entries{attr('reset')}")
+    print(f"{fg('cyan')}{bg('white')}2. Enter 2 to mark entry complete{attr('reset')}")
+    print(f"{fg('cyan')}{bg('white')}3. Enter 3 to add another entry{attr('reset')}")
+    print(f"{fg('cyan')}{bg('white')}4. Enter 4 to exit{attr('reset')}")
     choice = input("Enter your selection: ")
     return choice
 
