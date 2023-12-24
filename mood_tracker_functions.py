@@ -50,7 +50,7 @@ def add_score(file_name):
 
 
 def add_emotions(file_name):
-    print("Add key emotions")
+    print("Add key emotions from the following list (case sensitive")
     emotions_list = ["Happy", "Sad", "Angry", "Content", "Grumpy"]
 
     while True:
@@ -108,7 +108,7 @@ def complete_entry(file_name):
         if chosen_emotion in emotions_list:
             break
         else:
-            print("Please choose from emotions below")
+            print("Please choose from emotions below (case sensitive)")
 
     print("Rate day / 10")
     
