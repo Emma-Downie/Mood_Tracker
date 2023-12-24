@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # check if python is installed 
+    #print on screen please instal python if not installed
 
 #check if venv exists
 

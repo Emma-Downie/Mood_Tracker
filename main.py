@@ -7,7 +7,7 @@ try:
     #open the file in read mode
     entries_file = open(file_name, "r")
     entries_file.close
-    print("In try block")
+    # print("In try block") commented out as didn't like the addition
     #if it rhows error, it means the file doesn't exist
     #if no error, it mesns the file exists
 except FileNotFoundError:
@@ -17,10 +17,10 @@ except FileNotFoundError:
     #we can also insert the first line into the file
     entries_file.write("title,completed\n")
     entries_file.close()
-    print("In except block")
+    # print("In except block") commented out as didnt like the addition
 
 
-print(f"{fg('black')}{bg('white')}Welcome to your Mood Tracker{attr('reset')}")
+print(f"{fg('magenta')}{bg('white')}Welcome to your Mood Tracker{attr('reset')}")
 
 complete_entry(file_name)
 
@@ -49,4 +49,4 @@ while users_choice != "4":
     else:
         print("Invalid Inupt")
 
-print("Thank you for using your mood tracker")
+print(f"{fg('magenta')}{bg('white')}Thank you for using your mood tracker{attr('reset')}")

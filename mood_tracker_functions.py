@@ -1,5 +1,6 @@
 import csv
 
+
 def add_entry(file_name):
     print("Add Entry")
     #Ask the titel of the entry
@@ -92,7 +93,7 @@ def view_entries(file_name):
                 print(f"Entry {row[0]} is not complete")
 
 def complete_entry(file_name):
-    print("Complete Entry")
+    print("Let's make a new entry!")
     
     entry_name = input("Add an entry title: ")
 
@@ -107,7 +108,7 @@ def complete_entry(file_name):
         if chosen_emotion in emotions_list:
             break
         else:
-            print("Please choose from emotions above")
+            print("Please choose from emotions below")
 
     print("Rate day / 10")
     
