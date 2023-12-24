@@ -7,7 +7,7 @@ try:
     #open the file in read mode
     entries_file = open(file_name, "r")
     entries_file.close
-    # print("In try block") commented out as didn't like the addition
+    print("In try block") commented out as didn't like the addition
     #if it rhows error, it means the file doesn't exist
     #if no error, it mesns the file exists
 except FileNotFoundError:
